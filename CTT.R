@@ -140,4 +140,23 @@ co_alpha$item.stats %>%
        title = "Consistency scale",
        subtitle = "Item characteristics")
 
+taia %>% 
+  select(all_of(pr_items)) %>% 
+  cor() %>% 
+  ggcorrplot::ggcorrplot(
+    type = "lower", lab = TRUE, lab_size = 3,
+    colors = c("indianred1", "white", "royalblue1"),
+    title = "Predictability. Inter-item correlations",
+    show.legend = FALSE
+  )
 
+
+taia %>% 
+  select(all_of(co_items)) %>% 
+  cor() %>% 
+  ggcorrplot::ggcorrplot(
+    type = "lower", lab = TRUE, lab_size = 3,
+    colors = c("indianred1", "white", "royalblue1"),
+    title = "Consistency. Inter-item correlations",
+    show.legend = FALSE
+  )
